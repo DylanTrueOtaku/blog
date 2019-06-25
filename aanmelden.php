@@ -5,7 +5,8 @@ if(isset($_POST["submit"])){
   function upload(){
     global $uploadsMap
     $uploadsMap = "uploads/";
-    $uploadsMap = $uploadsMap
+    $uploadsMap = $uploadsMap . basename($FILES["foto"]["name"]);
+    $fotoType = pathinfo($uploadsMap, PATHINFO_EXTENSION);
   }
 }
 
