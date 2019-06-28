@@ -47,11 +47,26 @@ if(isset($_POST["submit"])){
       $naam = htmlspecialchars($_POST['naam']);
       $email = htmlspecialchars($_POST['password']);
       $wachtwoord = htmlspecialchars($_POST['password']);
-      $profielfoyo
+      $profielfoto = $fotonaam;
+
+      $profiel =
+        $naam . "*" .
+        $email . "*" .
+        $wachtwoord . "*" .
+        $profielfoto."\n";
+      fwrite($bestand,$profiel,strlen($profiel));
+
+      if(fclose($bestand)){
+        echo "Account is aangemaakt";
+      }else{
+        echo "kon bestand niet afsluiten"
+      }
+      }else{
+        echo "Probleem bij het uploaden. Foto niet geupload";
+      }
     }
   }
-}
-
-
 
 ?>
+<a href="aanmelden.html"><input type="button" name="terug" value=" terug " />
+</a>
